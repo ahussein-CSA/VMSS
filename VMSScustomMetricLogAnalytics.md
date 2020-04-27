@@ -7,16 +7,13 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
   
   # Pre-Requisites:
   
-  1- Azure Vitrual Machine Scaleset
-    -Existing or new
+  1. Azure Vitrual Machine Scaleset
+     1. Existing or new
     
-  2- Log analytics Workspace
+  2. Log analytics Workspace
   
-  3- Windows VM: this could be an instance within the VMSS, a different Azure VM or an on-premise VM (agent must be installed on on-premise)
-     - For linux , Linux diagnostic agent needs to be installed.
+  3. Windows VM: this could be an instance within the VMSS, a different Azure VM or an on-premise VM (agent must be installed on on-premise)
+     1. For linux , Linux diagnostic agent needs to be installed.
   
-  4- MMA agent extension to be installed Windows VM
-     - As pointed above, if the VM is in Azure , either within VMSS or a different Azure VM , the MMA can be installed through the extension blade.
-
-  
-  
+  4. MMA agent extension to be installed Windows VM
+     1. As pointed above, if the VM is in Azure , either within VMSS or a different Azure VM , the MMA can be installed through the extension blade.
