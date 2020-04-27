@@ -28,7 +28,7 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 1. Deploy VMSS scaleset
 2. Enable Insight 
 
-![Alt text](/relative/path/to/img.jpg?raw=true "LA Data settings")
+![ScreenShot](LAAdvancedSettings.PNG?raw=true "LA Data settings")
 
 
 
