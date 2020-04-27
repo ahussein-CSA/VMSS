@@ -17,3 +17,10 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
   
   4. MMA agent extension to be installed Windows VM
      1. As pointed above, if the VM is in Azure , either within VMSS or a different Azure VM , the MMA can be installed through the extension blade.
+     
+  5. Enable insight (Diagnostic Settings on the Scaleset):
+    1. This will allow us to trace the autoscale evaluation logs and autoscale Actions logs- this step I recommend for troubleshooting if needed.
+    
+
+
+# Begin
