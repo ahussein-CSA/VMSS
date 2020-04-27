@@ -23,4 +23,13 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
     1. This will allow us to trace the autoscale evaluation logs and autoscale Actions logs- this step I recommend for troubleshooting if needed.
     
 
-# Begin
+# Steps:
+
+1. Deploy VMSS scaleset
+2. Enable Insight 
+
+![Alt text](/relative/path/to/img.jpg?raw=true "LA Data settings")
+
+
+
+
