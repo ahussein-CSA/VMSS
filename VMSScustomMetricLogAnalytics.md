@@ -25,10 +25,11 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 
 # Steps:
 
-1. Deploy VMSS scaleset
-2. Enable Insight 
-
+1. Deploy VMSS scaleset: I have create a VMSS "testCMVMSS"with Instance Count 2
+<img src="testcmvmss.PNG" width="250" height="300" />
+2. Enable Insight on Log analytics workspace
 <img src="LAAdvancedSettings.PNG" width="250" height="300" />
+3. 
 
 
 
