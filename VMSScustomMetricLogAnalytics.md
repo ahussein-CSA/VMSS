@@ -38,12 +38,22 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
       
 
 2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
-<img src="advancedsettings.PNG" width="300" height="250" />
+  <img src="advancedsettings.PNG" width="300" height="250" />
+  
    1. Click on Data --> Windows Event Logs --> on the box type Application(I am pushing an application type event from windows VM)
+   
    2. Click on Save
       1. Please note: any VM with an MMA agent that is connected to the same workspace will now report any windows event of the type Application to the log analytics Event Table along with any other Event type that is being specified.
 <img src="eventtype.PNG" width="300" height="250" />
 
+3. Create custom autoscale Scale out rule based on an event metric and enable diagnostic settings to query "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog "  [ the metric criteria as Source = "testCMtrigger"]
+  1. please modify the rule as per the highlighted field
+  2. the autoscale rule will check for an event METRIC (not an event - will explain later ) that has the source value of "testCMtrigger", it will check the count every 1 minute , and if within the last 2 minutes it is greater than 1 , it will trigger the autoscale.
+<img src="createcustomScaleoutarule.PNG" width="300" height="250" />
+<img src="rule1.PNG" width="300" height="250" />
+<img src="rule2.PNG" width="300" height="250" />
+
+4. Push an event from within the windows VM with a specific Source "testCMtrigger"
 
 
 
