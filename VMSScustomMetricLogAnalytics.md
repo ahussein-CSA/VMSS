@@ -52,13 +52,16 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 3. Create custom autoscale Scale out rule based on an event metric and enable diagnostic settings to query "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog "  [ the metric criteria as Source = "testCMtrigger"]
 
     1. please modify the rule as per the highlighted field
-    2. the autoscale rule will check for an event METRIC (not an event - will explain later ) that has the source value of "testCMtrigger", it will check the count every 1 minute , and if within the last 2 minutes it is greater than 1 , it will trigger the autoscale.
+    2. the autoscale rule will check for an event METRIC (not an event - will explain later ) that has the source value of "testCMtrigger", it will check the count every 1 minute , and if within the last 2 minutes it is greater than 1 , it will trigger the autoscale. [current instance count is 2 , maximum I can get is 3]
   
 <img src="createcustomScaleoutarule.PNG" />
 
 <img src="rule1.PNG" />
 
 <img src="rule2.PNG" />
+
+<img src="rule3.PNG" />
+
 
 4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - this doesn ot have to be same workspace you are pushing the event to - in my case I use the same
 
