@@ -3,7 +3,7 @@
 
 This document is intended to provide guidance on how to scale out an azure virtual machine scaleset based on a custom metric that is triggered by an event pushed from a virtual machine to log analytics workspace[Log analytics wsorkspace metircs].
 
-The main guide is [Here](VMSScustomMetricLogAnalytics.md)
+## The main guide is [Here](VMSScustomMetricLogAnalytics.md)
 
 This guide is performed using Azure Potral , An ARM template guide will follow
 
