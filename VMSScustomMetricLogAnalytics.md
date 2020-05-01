@@ -95,7 +95,7 @@ AutoscaleEvaluationsLog
 7. To move the EVent from the event table to the timeseries table where VMSS read the Event metric, we will need to create an Alert on the log analytics workspace (where the event is being pushed to ) that will never fire or be triggered, yet it is a copy mechanism.
 
 
-  1. Please note: for the Alert rule it is important to make the trigger less than 0 - We do not want the alert to be triggered , it is a way just to copy the event into an event metric.
+  1. Please note: for the Alert rule it is important to make the threshold less than 0 - We do not want the alert to be triggered , it is a way just to copy the event into an event metric.
   
 
 <img src="alert1.PNG" /><br>
