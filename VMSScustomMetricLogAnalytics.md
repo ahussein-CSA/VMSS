@@ -29,7 +29,9 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 1. Deploy VMSS scaleset:
    1. I have create a VMSS "testCMVMSS"with Instance Count 2 and insight is enabled to push some data for troubleshooting
    2. Install MMA extension on the VMSS (this can be by deploying the MMA extension , or by enabling the insight)
-      1. This will help for tracking the "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - This step is only necessary to give you an insight of how the scaling is triggered, you can disable it at later stage.
+      1. This will help for tracking the "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " 
+      2. Please note: the above step is necessary if the event will be triggered from within the VMSS then the MMA need to be installed, however in here I use it to give you an insight of how the scaling is triggered, you can disable it at later stage.
+      3. I am using a different VM to trigger the Event.
       <img src="testcmvmss.PNG" width="250" height="300" />
       <img src="testcmvmss.PNG" width="250" height="300" />
       
