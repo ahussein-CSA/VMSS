@@ -9,6 +9,7 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
   
   1. Azure Vitrual Machine Scaleset
      1. Existing or new
+     2. Install MMA extension - you can do that by enabling insight from within VMSS
     
   2. Log analytics Workspace
   
@@ -25,9 +26,12 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 
 # Steps:
 
-1. Deploy VMSS scaleset: I have create a VMSS "testCMVMSS"with Instance Count 2
+1. Deploy VMSS scaleset: 
+ 1. I have create a VMSS "testCMVMSS"with Instance Count 2 and insight is enabled to push bo
 <img src="testcmvmss.PNG" width="250" height="300" />
-2. Enable Insight on Log analytics workspace
+ 2. Install MMA extension on the VMSS (this can be by deploying the MMA extension , or by enabling the insight)
+  1. This will help for tracking the "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - This step is only necessary to give you an insight of how the scaling is triggered, you can disable it at later stage.
+2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
 <img src="LAAdvancedSettings.PNG" width="250" height="300" />
 3. 
 
