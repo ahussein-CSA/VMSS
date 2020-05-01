@@ -1,7 +1,7 @@
-# Creating a custom metric rule to scale out Azure Virtual Machine Scaleset (VMSS) using custom Events other than using Application insight metrics.
+# Creating a custom resource metric rule to scale out Azure Virtual Machine Scaleset (VMSS) using custom Events other than using Application insight nor host-based metrics.
 
 
-This document is intended to provide guidance on how to scale out an azure virtual machine scaleset based on a custom metric that is triggered by an event pushed from a virtual machine to log analytics workspace.
+This document is intended to provide guidance on how to scale out an azure virtual machine scaleset based on a custom metric that is triggered by an event pushed from a virtual machine to log analytics workspace[Log analytics wsorkspace metircs].
 
 The main guide is [Here](VMSScustomMetricLogAnalytics.md)
 
