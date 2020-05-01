@@ -32,6 +32,7 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
       1. This will help for tracking the "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " 
       2. Please note: the above step is necessary if the event will be triggered from within the VMSS then the MMA need to be installed, however in here I use it to give you an insight of how the scaling is triggered, you can disable it at later stage.
       3. I am using a different VM to trigger the Event.
+      
 <img src="testcmvmss.PNG"/>
 
 <img src="enableinsightVMSS.PNG" />
@@ -59,9 +60,12 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 
 <img src="rule2.PNG" />
 
-4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog "
+4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - this doesn ot have to be same workspace you are pushing the event to - in my case I use the same
 
-<img src="diagnosticsetting.PNG" />
+<img src="diagnosticsettings.PNG" />
+
+<img src="diagset1.PNG" />
+
 
 
 
