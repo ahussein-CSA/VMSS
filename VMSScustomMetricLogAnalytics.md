@@ -33,46 +33,46 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
       2. Please note: the above step is necessary if the event will be triggered from within the VMSS then the MMA need to be installed, however in here I use it to give you an insight of how the scaling is triggered, you can disable it at later stage.
       3. I am using a different VM to trigger the Event.
       
-<img src="testcmvmss.PNG"/><br>
+<img src="images/testcmvmss.PNG"/><br>
 
-<img src="enableinsightVMSS.PNG" /><br>
+<img src="images/enableinsightVMSS.PNG" /><br>
 
-<img src="extensionistalled.PNG" /><br>
+<img src="images/extensionistalled.PNG" /><br>
       
 
 2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
-  <img src="advancedsettings.PNG" />
+  <img src="images/advancedsettings.PNG" />
   
    1. Click on Data --> Windows Event Logs --> on the box type Application(I am pushing an application type event from windows VM)
    
    2. Click on Save
       1. Please note: any VM with an MMA agent that is connected to the same workspace will now report any windows event of the type Application to the log analytics Event Table along with any other Event type that is being specified.
-<img src="eventtype.PNG" />
+<img src="images/eventtype.PNG" />
 
 3. Create custom autoscale Scale out rule based on an event metric and enable diagnostic settings to query "AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog "  [ the metric criteria as Source = "testCMtrigger" it is unique so we do not get the other events]
 
     1. please modify the rule as per the highlighted field
     2. the autoscale rule will check for an event METRIC (not an event - will explain later ) that has the source value of "testCMtrigger", it will check the count every 1 minute , and if within the last 2 minutes it is greater than 1 , it will trigger the autoscale. [current instance count is 2 , maximum I can get is 3]
   
-<img src="createcustomScaleoutarule.PNG" /><br>
+<img src="images/createcustomScaleoutarule.PNG" /><br>
 
-<img src="rule1.PNG" /><br>
+<img src="images/rule1.PNG" /><br>
 
-<img src="rule2.PNG" /><br>
+<img src="images/rule2.PNG" /><br>
 
-<img src="rule3.PNG" /><br>
+<img src="images/rule3.PNG" /><br>
 
 
 4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - this doesn ot have to be same workspace you are pushing the event to - in my case I use the same
 
 
-<img src="diagnosticsettings1.PNG" /><br>
+<img src="images/diagnosticsettings1.PNG" /><br>
 
-<img src="diagset2.PNG" /><br>
+<img src="images/diagset2.PNG" /><br>
 
 5. Push the application event metric from with VM , then query the log analytics workspace to see the event appears in there
 
-<img src="pushevent.PNG" /><br>
+<img src="images/pushevent.PNG" /><br>
 
 6. Running a query to check what evaluation Data is being captured.
 
@@ -90,7 +90,7 @@ AutoscaleEvaluationsLog
 | project vmssName  , OperationName, MetricData, ObservedValue, Threshold, EstimateScaleResult, TimeWindow , TimeGrainStatistic , TimeGenerated | order by TimeGenerated desc
 
 ``` 
-<img src="logcapture1.PNG" /><br>
+<img src="images/logcapture1.PNG" /><br>
 
 7. To move the EVent from the event table to the timeseries table where VMSS read the Event metric, we will need to create an Alert on the log analytics workspace (where the event is being pushed to ) that will never fire or be triggered, yet it is a copy mechanism.
 
@@ -98,31 +98,31 @@ AutoscaleEvaluationsLog
   1. Please note: for the Alert rule it is important to make the threshold less than 0 - We do not want the alert to be triggered , it is a way just to copy the event into an event metric.
   
 
-<img src="alert1.PNG" /><br>
-<img src="alert2.PNG" /><br>
-<img src="alert3.PNG" /><br>
-<img src="alert4.PNG" /><br>
+<img src="images/alert1.PNG" /><br>
+<img src="images/alert2.PNG" /><br>
+<img src="images/alert3.PNG" /><br>
+<img src="images/alert4.PNG" /><br>
 
 
 8. Once the above is done , now you can see that there is a metric Data appears on the AutoscaleEvaluationsLog , where it mentions if a scale set is triggered or not, as the threshold for the rule is > 1 and it checks only for last 2 minutes, then no triggering 
 
-<img src="scalerule1.PNG" /><br>
-<img src="logcapture2.PNG" /><br>
-<img src="logcapture3.PNG" /><br>
+<img src="images/scalerule1.PNG" /><br>
+<img src="images/logcapture2.PNG" /><br>
+<img src="images/logcapture3.PNG" /><br>
 
 
 9- I will push more than one Event now , so the threshold for the last 2 minutes will be more than 1 then a scale out trigger is now taking place
 
-<img src="logcapturetriggered.PNG" /><br>
+<img src="images/logcapturetriggered.PNG" /><br>
 
 10- A new instance is being created (maximum instance count is 3)
 
-<img src="instancecreation.PNG" /><br>
-<img src="instancecreation1.PNG" /><br>
+<img src="images/instancecreation.PNG" /><br>
+<img src="images/instancecreation1.PNG" /><br>
 
 11- the new instance is running. (3 instances running now , and the autoscale rule will stop as the maximum instance count is met)
 
-<img src="instancecreated.PNG" /><br>
+<img src="images/instancecreated.PNG" /><br>
 
 
 
