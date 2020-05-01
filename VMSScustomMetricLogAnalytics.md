@@ -33,11 +33,11 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
       2. Please note: the above step is necessary if the event will be triggered from within the VMSS then the MMA need to be installed, however in here I use it to give you an insight of how the scaling is triggered, you can disable it at later stage.
       3. I am using a different VM to trigger the Event.
       
-<img src="testcmvmss.PNG"/>
+<img src="testcmvmss.PNG"/><br>
 
-<img src="enableinsightVMSS.PNG" />
+<img src="enableinsightVMSS.PNG" /><br>
 
-<img src="extensionistalled.PNG" />
+<img src="extensionistalled.PNG" /><br>
       
 
 2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
@@ -54,24 +54,39 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
     1. please modify the rule as per the highlighted field
     2. the autoscale rule will check for an event METRIC (not an event - will explain later ) that has the source value of "testCMtrigger", it will check the count every 1 minute , and if within the last 2 minutes it is greater than 1 , it will trigger the autoscale. [current instance count is 2 , maximum I can get is 3]
   
-<img src="createcustomScaleoutarule.PNG" />
+<img src="createcustomScaleoutarule.PNG" /><br>
 
-<img src="rule1.PNG" />
+<img src="rule1.PNG" /><br>
 
-<img src="rule2.PNG" />
+<img src="rule2.PNG" /><br>
 
-<img src="rule3.PNG" />
+<img src="rule3.PNG" /><br>
 
 
 4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - this doesn ot have to be same workspace you are pushing the event to - in my case I use the same
 
 
-<img src="diagnosticsettings1.PNG" />
+<img src="diagnosticsettings1.PNG" /><br>
 
-<img src="diagset2.PNG" />
+<img src="diagset2.PNG" /><br>
 
+5. Push the application event metric from with VM , then query the log analytics workspace to see the event appears in there
 
-5. Running a query to check what evaluation Data is being captured.
+6. Running a query to check what evaluation Data is being captured.
+
+  1. I have run the query below to see what is the current autoscale evaluation is reporting, as seen in the screenshot , metric data is empty and even though an event is being pushed but it does not appear in there 
+  
+  2. The reason for the above is : Event is pushed to an Event table , yet VMSS  scaleset is checking different table for a Metric called an Event.
+  
+7. To move the EVent from the event table to the timeseries table where VMSS read the Event metric, we will need to create an Alert on the log analytics workspace (where the event is being pushed to ) that will never fire or be triggered, yet it is a copy mechanism.
+
+8. Once the above is done , now you can see that there is a metric Data appears on the AutoscaleEvaluationsLog , where it mentions if a scale set is triggered or not, as the threshold for the rule is > 1 and it checks only for last 2 minutes no triggering 
+
+9- I will push more than one Event now , so the threshold for the last 2 minutes will be more than 1 then a scale out trigger is now taking place
+
+10- A new instance is being created
+
+11- the new instance is running.
 
 
 
