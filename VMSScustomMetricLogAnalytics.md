@@ -85,7 +85,6 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 AutoscaleEvaluationsLog
 | where TimeGenerated > ago(3m)
 | where OperationName == "MetricEvaluation" or OperationName == "ScaleRuleEvaluation" 
-| where ResourceId contains "84" 
 | extend vmssName= split(ResourceId,"/")[8]
 | project vmssName  , OperationName, MetricData, ObservedValue, Threshold, EstimateScaleResult, TimeWindow , TimeGrainStatistic , TimeGenerated | order by TimeGenerated desc
 
