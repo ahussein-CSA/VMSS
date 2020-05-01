@@ -37,7 +37,7 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 
 <img src="enableinsightVMSS.PNG" />
 
-<img src="extensioninstalled.PNG" />
+<img src="extensionistalled.PNG" />
       
 
 2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
