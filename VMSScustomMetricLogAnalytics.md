@@ -33,7 +33,8 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
       2. Please note: the above step is necessary if the event will be triggered from within the VMSS then the MMA need to be installed, however in here I use it to give you an insight of how the scaling is triggered, you can disable it at later stage.
       3. I am using a different VM to trigger the Event.
       <img src="testcmvmss.PNG" width="250" height="300" />
-      <img src="testcmvmss.PNG" width="250" height="300" />
+      <img src="enableinsightVMSS.PNG" width="250" height="300" />
+      <img src="extensionistalled.PNG" width="250" height="300" />
       
 
 2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
