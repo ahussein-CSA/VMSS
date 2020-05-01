@@ -33,7 +33,9 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
       2. Please note: the above step is necessary if the event will be triggered from within the VMSS then the MMA need to be installed, however in here I use it to give you an insight of how the scaling is triggered, you can disable it at later stage.
       3. I am using a different VM to trigger the Event.
 <img src="testcmvmss.PNG"/>
+
 <img src="enableinsightVMSS.PNG" />
+
 <img src="extensionistalled.PNG />
       
 
@@ -52,10 +54,15 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
     2. the autoscale rule will check for an event METRIC (not an event - will explain later ) that has the source value of "testCMtrigger", it will check the count every 1 minute , and if within the last 2 minutes it is greater than 1 , it will trigger the autoscale.
   
 <img src="createcustomScaleoutarule.PNG" />
+
 <img src="rule1.PNG" />
+
 <img src="rule2.PNG" />
 
-4. Push an event from within the windows VM with a specific Source "testCMtrigger"
+4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog "
+
+<img src="diagnosticsetting.PNG" />
+
 
 
 
