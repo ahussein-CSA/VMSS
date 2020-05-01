@@ -79,8 +79,20 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
   1. I have run the query below to see what is the current autoscale evaluation is reporting, as seen in the screenshot , metric data is empty and even though an event is being pushed but it does not appear in there 
   
   2. The reason for the above is : Event is pushed to an Event table , yet VMSS  scaleset is checking different table for a Metric called an Event.
-  
+
+``` Kusto Query
+
+AutoscaleEvaluationsLog
+| where TimeGenerated > ago(3m)
+| where OperationName == "MetricEvaluation" or OperationName == "ScaleRuleEvaluation" 
+| where ResourceId contains "84" 
+| extend vmssName= split(ResourceId,"/")[8]
+| project vmssName  , OperationName, MetricData, ObservedValue, Threshold, EstimateScaleResult, TimeWindow , TimeGrainStatistic , TimeGenerated | order by TimeGenerated desc
+
+``` 
 <img src="logcapture1.PNG" /><br>
+
+
   
 7. To move the EVent from the event table to the timeseries table where VMSS read the Event metric, we will need to create an Alert on the log analytics workspace (where the event is being pushed to ) that will never fire or be triggered, yet it is a copy mechanism.
 
