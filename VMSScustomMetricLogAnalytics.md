@@ -117,7 +117,8 @@ AutoscaleEvaluationsLog
 
 10- A new instance is being created (maximum instance count is 3)
 
-<img src="instancecreationd.PNG" /><br>
+<img src="instancecreation.PNG" /><br>
+<img src="instancecreation1.PNG" /><br>
 
 11- the new instance is running. (3 instances running now , and the autoscale rule will stop as the maximum instance count is met)
 
