@@ -37,7 +37,7 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 
 <img src="enableinsightVMSS.PNG" />
 
-<img src="extensionistalled.PNG />
+<img src="extensioninstalled.PNG />
       
 
 2. Enable Certain event Data to be pushed from the Agent on Log analytics workspace
@@ -62,11 +62,11 @@ This guide does not discuss the Use host-based metrics that VMSS rule can scale 
 
 4. Once the rule is saved, enable diagnostic settings to track AutoscaleEvaluationsLog" and "AutoscaleScaleActionsLog " - this doesn ot have to be same workspace you are pushing the event to - in my case I use the same
 
-<img src="diagnosticsettings.PNG" />
+<img src="diagnosticsettings1.PNG" />
 
-<img src="diagset1.PNG" />
+<img src="diagset2.PNG" />
 
-
+5. Running a query to check what evaluation Data is being captured.
 
 
 
