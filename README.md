@@ -12,7 +12,7 @@ This guide is performed using Azure Potral , An ARM template guide will follow
 This guide is not using the applicaiton insight metrics to trigger VMSS autoscale. it uses a custom metric/event for this.
 
 If you are interested to use application insight to perform the same, please check the below 2 links: 
-Here](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview#application-level-metrics-with-app-insights) 
+[Here](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview#application-level-metrics-with-app-insights) 
 <br> And 
 [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
 
