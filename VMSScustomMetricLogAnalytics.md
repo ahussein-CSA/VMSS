@@ -91,7 +91,7 @@ AutoscaleEvaluationsLog
 ``` 
 <img src="images/logcapture1.PNG" /><br>
 
-7. To move the EVent from the event table to the timeseries table where VMSS read the Event metric, we will need to create an Alert on the log analytics workspace (where the event is being pushed to ) that will never fire or be triggered, yet it is a copy mechanism. [another way to do this is to use the Schedule Query Rule API, it will do the copy , yet won't create an alert which will serve our requirement, check it in HERE(https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate#create-or-update-rule---logtometricaction)]
+7. To move the EVent from the event table to the timeseries table where VMSS read the Event metric, we will need to create an Alert on the log analytics workspace (where the event is being pushed to ) that will never fire or be triggered, yet it is a copy mechanism. (another way to do this is to use the Schedule Query Rule API, it will do the copy , yet won't create an alert which will serve our requirement, check it in [HERE](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate#create-or-update-rule---logtometricaction))
 
 
   1. Please note: for the Alert rule it is important to make the threshold less than 0 - We do not want the alert to be triggered , it is a way just to copy the event into an event metric.
